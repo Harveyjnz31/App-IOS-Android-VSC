@@ -1,19 +1,21 @@
-# TaskFlow 📱
+# ProConnect — Contrata profesionales P2P 🔧⚡️🚰
 
-Una aplicación de gestión de tareas hermosa y funcional construida con React Native + Expo.
+Plataforma móvil para conectar clientes residenciales con profesionales locales (electricistas, mecánicos, plomeros y más). Construida con React Native + Expo, diseñada para facilitar solicitudes, cotizaciones y contrataciones seguras entre vecinos y técnicos.
 
-![React Native](https://img.shields.io/badge/React%20Native-0.76-blue)
-![Expo](https://img.shields.io/badge/Expo-52-black)
+![React Native](https://img.shields.io/badge/React%20Native-0.81-blue)
+![Expo](https://img.shields.io/badge/Expo-54-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
 
-## ✨ Características
+## ✨ Características principales
 
-- ✅ **Gestión de tareas**: Crear, completar y eliminar tareas
-- 📁 **Categorías**: Organiza tus tareas en Trabajo, Personal, Compras y Salud
-- 🌙 **Modo Oscuro**: Cambio suave entre temas claro y oscuro
-- 🔔 **Notificaciones**: Recordatorios para tus tareas
-- 💾 **Persistencia**: Tus datos se guardan localmente
-- 📱 **Diseño iOS**: Interfaz nativa con glassmorphism y animaciones fluidas
+- 📌 **Publicar solicitudes de servicio**: Los clientes describen el trabajo, adjuntan fotos y solicitan fechas.
+- 🧰 **Perfil profesional**: Técnicos muestran experiencia, tarifas, portafolio y disponibilidad.
+- 💬 **Cotizaciones y mensajería**: Los profesionales envían ofertas; chat integrado para coordinar detalles.
+- ⭐ **Valoraciones y reseñas**: Seguimiento de reputación para generar confianza.
+- 📍 **Búsqueda por zona**: Filtrar profesionales por cercanía y horario.
+- 📆 **Reservas y programación**: Calendario de citas y confirmaciones.
+- 🔔 **Notificaciones push**: Alertas de nuevas solicitudes, mensajes y confirmaciones.
+- 💳 **Pagos**: Integración de pagos (Stripe u otro proveedor a integrar).
 
 ## 🚀 Inicio Rápido
 
