@@ -58,6 +58,35 @@ npx expo start --android
 1. Instala la app "Expo Go" desde App Store / Play Store
 2. Escanea el código QR generado
 
+## ✅ Checklist de lanzamiento (mínimo)
+
+- Añadir icono de app (`assets/icon.png`) y `adaptive-icon.png` para Android.
+- Añadir `splash.png` de alta resolución en `assets/`.
+- Revisar `app.json` y `bundleIdentifier` / `android.package`.
+- Preparar y subir políticas: `privacyPolicy` y `terms` (en web).
+- Configurar build con EAS: `eas build -p ios` / `eas build -p android`.
+- Probar la app en varios dispositivos y redes (iOS/Android).
+- Verificar notificaciones y permisos de geolocalización.
+- Preparar capturas de pantalla y descripción para App Store / Play Store.
+
+## 📦 Scripts útiles
+
+```bash
+# Iniciar en desarrollo
+npm start
+
+# Build (EAS) - requiere configuracion de EAS
+npm run build:android
+npm run build:ios
+
+# Publicar canal production
+npm run publish:prod
+```
+
+## 🛡️ Privacidad y cumplimiento
+
+Incluye una página pública con la política de privacidad antes de subir a tiendas. Si quieres, genero un borrador de `privacy.md` y lo añado al repo.
+
 ## 📁 Estructura del Proyecto
 
 ```

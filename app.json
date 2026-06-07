@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "displayName": "ProConnect",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
@@ -14,7 +15,8 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.proconnect.app"
+      "bundleIdentifier": "com.proconnect.app",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
@@ -22,6 +24,8 @@
         "backgroundColor": "#007AFF"
       }
     },
+    "privacy": "public",
+    "owner": null,
     "plugins": [
       [
         "expo-notifications",
