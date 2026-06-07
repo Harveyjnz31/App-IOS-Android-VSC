@@ -6,6 +6,7 @@ import { RequestsStack } from "./RequestsStack";
 import { CreateRequestScreen } from "../screens/CreateRequestScreen";
 import { ProfessionalProfileScreen } from "../screens/ProfessionalProfileScreen";
 import { ChatScreen } from "../screens/ChatScreen";
+import { HomeScreen } from "../screens/HomeScreen";
 import { useApp } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
 
@@ -49,6 +50,15 @@ export function TabNavigator() {
       }}
     >
       <Tab.Screen
+        name="Inicio"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ focused, color }) => (
+            <TabIcon icon="🏠" focused={focused} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Solicitudes"
         component={RequestsStack}
         options={{
@@ -63,15 +73,6 @@ export function TabNavigator() {
         options={{
           tabBarIcon: ({ focused, color }) => (
             <TabIcon icon="➕" focused={focused} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Perfil"
-        component={ProfessionalProfileScreen}
-        options={{
-          tabBarIcon: ({ focused, color }) => (
-            <TabIcon icon="👤" focused={focused} color={color} />
           ),
         }}
       />
