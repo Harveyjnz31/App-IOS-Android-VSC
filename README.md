@@ -92,3 +92,26 @@ npx expo start --android
 ## 📝 Licencia
 
 MIT © 2024
+
+## 🛠️ Desarrollo
+
+Si trabajas en la app localmente, estos comandos te ayudarán a preparar y ejecutar el entorno de desarrollo:
+
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar Metro (LAN) — usa la IP de tu máquina si quieres conectar dispositivos físicos
+export REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.7
+npx expo start --lan --clear
+
+# Alternativa (mac/windows PowerShell):
+# $env:REACT_NATIVE_PACKAGER_HOSTNAME="192.168.1.7"; npx expo start --lan --clear
+```
+
+Notas útiles:
+
+- Si ves un error runtime relacionado con Hermes (`Cannot assign to read-only property 'NONE'`), lo hemos pospuesto temporalmente — la app sigue funcional en Expo Go. Podemos investigar y parchear dependeencias más tarde.
+- El proyecto ya está versionado en: https://github.com/Harveyjnz31/App-IOS-Android-VSC.git
+
+Si quieres que agregue CI (GitHub Actions) o normas de lint, dime y lo añado.
