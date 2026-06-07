@@ -1,8 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, StyleSheet } from "react-native";
-import { TasksScreen } from "../screens/TasksScreen";
-import { CategoriesScreen } from "../screens/CategoriesScreen";
 import { SettingsScreen } from "../screens/SettingsScreen";
 import { RequestsStack } from "./RequestsStack";
 import { CreateRequestScreen } from "../screens/CreateRequestScreen";
@@ -78,15 +76,6 @@ export function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Tareas"
-        component={TasksScreen}
-        options={{
-          tabBarIcon: ({ focused, color }) => (
-            <TabIcon icon="✅" focused={focused} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Mensajes"
         component={ChatScreen}
         options={{
@@ -95,15 +84,7 @@ export function TabNavigator() {
           ),
         }}
       />
-      <Tab.Screen
-        name="Categorías"
-        component={CategoriesScreen}
-        options={{
-          tabBarIcon: ({ focused, color }) => (
-            <TabIcon icon="📁" focused={focused} color={color} />
-          ),
-        }}
-      />
+
       <Tab.Screen
         name="Ajustes"
         component={SettingsScreen}

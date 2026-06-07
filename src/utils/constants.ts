@@ -1,15 +1,4 @@
-import { Category, CategoryType } from "../types";
-
-export const CATEGORIES: Category[] = [
-  { id: "work", name: "Trabajo", icon: "💼", color: "#007AFF" },
-  { id: "personal", name: "Personal", icon: "👤", color: "#5856D6" },
-  { id: "shopping", name: "Compras", icon: "🛒", color: "#FF9500" },
-  { id: "health", name: "Salud", icon: "❤️", color: "#FF3B30" },
-];
-
-export const getCategoryById = (id: CategoryType): Category => {
-  return CATEGORIES.find((cat) => cat.id === id) || CATEGORIES[0];
-};
+// Removed task categories — ProConnect uses service requests instead
 
 export const COLORS = {
   light: {

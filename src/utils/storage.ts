@@ -1,28 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Task, AppSettings, Request } from "../types";
+import { AppSettings, Request } from "../types";
 
-const TASKS_KEY = "@taskflow_tasks";
-const SETTINGS_KEY = "@taskflow_settings";
+const SETTINGS_KEY = "@proconnect_settings";
 const REQUESTS_KEY = "@proconnect_requests";
 
 export const storage = {
-  async saveTasks(tasks: Task[]): Promise<void> {
-    try {
-      await AsyncStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
-    } catch (error) {
-      console.error("Error saving tasks:", error);
-    }
-  },
-
-  async loadTasks(): Promise<Task[]> {
-    try {
-      const data = await AsyncStorage.getItem(TASKS_KEY);
-      return data ? JSON.parse(data) : [];
-    } catch (error) {
-      console.error("Error loading tasks:", error);
-      return [];
-    }
-  },
+  // tasks removed — ProConnect stores only requests and settings
 
   async saveSettings(settings: AppSettings): Promise<void> {
     try {
