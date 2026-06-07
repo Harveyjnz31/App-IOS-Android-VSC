@@ -4,6 +4,10 @@ import { Text, StyleSheet } from "react-native";
 import { TasksScreen } from "../screens/TasksScreen";
 import { CategoriesScreen } from "../screens/CategoriesScreen";
 import { SettingsScreen } from "../screens/SettingsScreen";
+import { RequestsScreen } from "../screens/RequestsScreen";
+import { ProfessionalProfileScreen } from "../screens/ProfessionalProfileScreen";
+import { CreateRequestScreen } from "../screens/CreateRequestScreen";
+import { ChatScreen } from "../screens/ChatScreen";
 import { useApp } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
 
@@ -47,11 +51,47 @@ export function TabNavigator() {
       }}
     >
       <Tab.Screen
+        name="Solicitudes"
+        component={RequestsScreen}
+        options={{
+          tabBarIcon: ({ focused, color }) => (
+            <TabIcon icon="🧾" focused={focused} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Publicar"
+        component={CreateRequestScreen}
+        options={{
+          tabBarIcon: ({ focused, color }) => (
+            <TabIcon icon="➕" focused={focused} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Perfil"
+        component={ProfessionalProfileScreen}
+        options={{
+          tabBarIcon: ({ focused, color }) => (
+            <TabIcon icon="👤" focused={focused} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Tareas"
         component={TasksScreen}
         options={{
           tabBarIcon: ({ focused, color }) => (
             <TabIcon icon="✅" focused={focused} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Mensajes"
+        component={ChatScreen}
+        options={{
+          tabBarIcon: ({ focused, color }) => (
+            <TabIcon icon="💬" focused={focused} color={color} />
           ),
         }}
       />
