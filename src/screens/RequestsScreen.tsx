@@ -11,11 +11,11 @@ import { useApp } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
 
 export function RequestsScreen() {
-  const { settings } = useApp();
+  const { settings, requests } = useApp();
   const colors = settings.darkMode ? COLORS.dark : COLORS.light;
 
-  // Placeholder data
-  const data = [];
+  // requests data from context
+  const data = requests;
 
   return (
     <SafeAreaView
@@ -38,7 +38,18 @@ export function RequestsScreen() {
         <FlatList
           data={data}
           keyExtractor={(i) => String(i.id)}
-          renderItem={() => null}
+          renderItem={({ item }) => (
+            <TouchableOpacity style={styles.requestItem}>
+              <Text style={{ color: colors.text, fontWeight: "600" }}>
+                {item.title}
+              </Text>
+              {item.description ? (
+                <Text style={{ color: colors.textSecondary, marginTop: 6 }}>
+                  {item.description}
+                </Text>
+              ) : null}
+            </TouchableOpacity>
+          )}
         />
       )}
 

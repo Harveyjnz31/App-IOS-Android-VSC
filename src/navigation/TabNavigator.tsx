@@ -4,9 +4,9 @@ import { Text, StyleSheet } from "react-native";
 import { TasksScreen } from "../screens/TasksScreen";
 import { CategoriesScreen } from "../screens/CategoriesScreen";
 import { SettingsScreen } from "../screens/SettingsScreen";
-import { RequestsScreen } from "../screens/RequestsScreen";
-import { ProfessionalProfileScreen } from "../screens/ProfessionalProfileScreen";
+import { RequestsStack } from "./RequestsStack";
 import { CreateRequestScreen } from "../screens/CreateRequestScreen";
+import { ProfessionalProfileScreen } from "../screens/ProfessionalProfileScreen";
 import { ChatScreen } from "../screens/ChatScreen";
 import { useApp } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
@@ -52,7 +52,7 @@ export function TabNavigator() {
     >
       <Tab.Screen
         name="Solicitudes"
-        component={RequestsScreen}
+        component={RequestsStack}
         options={{
           tabBarIcon: ({ focused, color }) => (
             <TabIcon icon="🧾" focused={focused} color={color} />

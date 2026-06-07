@@ -9,18 +9,24 @@ import {
   Platform,
 } from "react-native";
 import { useApp } from "../context/AppContext";
+import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "../utils/constants";
 
 export function CreateRequestScreen() {
-  const { settings } = useApp();
+  const { settings, addRequest } = useApp();
+  const navigation = useNavigation();
   const colors = settings.darkMode ? COLORS.dark : COLORS.light;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const handlePublish = () => {
-    // placeholder: integrar lógica para publicar solicitud
+    if (!title.trim()) return;
+    addRequest(title.trim(), description.trim() || undefined);
     setTitle("");
     setDescription("");
+    // navegar a la pestaña Solicitudes
+    // @ts-ignore
+    navigation.navigate("Solicitudes");
   };
 
   return (

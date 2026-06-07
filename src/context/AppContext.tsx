@@ -5,14 +5,16 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-import { Task, AppSettings, CategoryType } from "../types";
+import { Task, AppSettings, CategoryType, Request } from "../types";
 import { storage } from "../utils/storage";
 import { v4 as uuidv4 } from "uuid";
 
 interface AppContextType {
   tasks: Task[];
   settings: AppSettings;
+  requests: Request[];
   addTask: (title: string, category: CategoryType) => void;
+  addRequest: (title: string, description?: string) => void;
   toggleTask: (id: string) => void;
   deleteTask: (id: string) => void;
   toggleDarkMode: () => void;
@@ -29,6 +31,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     darkMode: false,
     notifications: true,
   });
+  const [requests, setRequests] = useState<Request[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -43,6 +46,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (isLoaded) {
+      storage.saveRequests(requests);
+    }
+  }, [requests, isLoaded]);
+
+  useEffect(() => {
+    if (isLoaded) {
       storage.saveSettings(settings);
     }
   }, [settings, isLoaded]);
@@ -54,6 +63,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     ]);
     setTasks(loadedTasks);
     setSettings(loadedSettings);
+    const loadedRequests = await storage.loadRequests();
+    setRequests(loadedRequests);
     setIsLoaded(true);
   };
 
@@ -66,6 +77,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
       createdAt: new Date().toISOString(),
     };
     setTasks((prev) => [newTask, ...prev]);
+  };
+
+  const addRequest = (title: string, description?: string) => {
+    const newRequest: Request = {
+      id: uuidv4(),
+      title,
+      description,
+      createdAt: new Date().toISOString(),
+    };
+    setRequests((prev) => [newRequest, ...prev]);
   };
 
   const toggleTask = (id: string) => {
@@ -108,7 +129,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
       value={{
         tasks,
         settings,
+        requests,
         addTask,
+        addRequest,
         toggleTask,
         deleteTask,
         toggleDarkMode,
