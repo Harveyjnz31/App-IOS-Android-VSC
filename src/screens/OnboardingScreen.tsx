@@ -4,7 +4,11 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useApp } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
+import { storage } from "../utils/storage";
 
+type Props = {
+  onFinish?: () => void;
+};
 export function OnboardingScreen() {
   const navigation = useNavigation();
   const { settings } = useApp();
@@ -23,7 +27,7 @@ export function OnboardingScreen() {
         </Text>
         <TouchableOpacity
           style={[styles.button, { backgroundColor: colors.primary }]}
-          onPress={() => navigation.navigate("Home")}
+          onPress={handleStart}
         >
           <Text style={styles.buttonText}>Comenzar</Text>
         </TouchableOpacity>
@@ -31,6 +35,14 @@ export function OnboardingScreen() {
     </SafeAreaView>
   );
 }
+
+const handleStart = async () => {
+  await storage.saveOnboardingSeen(true);
+  if (onFinish) return onFinish();
+  // fallback navigation
+  // @ts-ignore
+  navigation.navigate("Home");
+};
 
 const styles = StyleSheet.create({
   container: { flex: 1 },

@@ -3,6 +3,7 @@ import { AppSettings, Request } from "../types";
 
 const SETTINGS_KEY = "@proconnect_settings";
 const REQUESTS_KEY = "@proconnect_requests";
+const ONBOARDING_KEY = "@proconnect_onboarding_seen";
 
 export const storage = {
   // tasks removed — ProConnect stores only requests and settings
@@ -39,6 +40,23 @@ export const storage = {
     } catch (error) {
       console.error("Error loading requests:", error);
       return [];
+    }
+  },
+  async saveOnboardingSeen(value: boolean): Promise<void> {
+    try {
+      await AsyncStorage.setItem(ONBOARDING_KEY, JSON.stringify(value));
+    } catch (error) {
+      console.error("Error saving onboarding flag:", error);
+    }
+  },
+
+  async loadOnboardingSeen(): Promise<boolean> {
+    try {
+      const data = await AsyncStorage.getItem(ONBOARDING_KEY);
+      return data ? JSON.parse(data) : false;
+    } catch (error) {
+      console.error("Error loading onboarding flag:", error);
+      return false;
     }
   },
 };
