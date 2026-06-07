@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useApp } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
+import { PrimaryButton } from "../components/PrimaryButton";
 
 export function HomeScreen() {
   const navigation = useNavigation();
@@ -20,12 +21,11 @@ export function HomeScreen() {
         <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
           Conecta con profesionales de confianza cerca de ti
         </Text>
-        <TouchableOpacity
-          style={[styles.cta, { backgroundColor: colors.primary }]}
+        <PrimaryButton
+          title="Publicar solicitud"
           onPress={() => navigation.navigate("Publicar")}
-        >
-          <Text style={styles.ctaText}>Publicar solicitud</Text>
-        </TouchableOpacity>
+          style={styles.cta}
+        />
       </View>
       <View style={styles.features}>
         <Text style={[styles.sectionTitle, { color: colors.text }]}>

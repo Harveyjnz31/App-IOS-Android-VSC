@@ -9,6 +9,7 @@ import {
   Platform,
 } from "react-native";
 import { useApp } from "../context/AppContext";
+import { PrimaryButton } from "../components/PrimaryButton";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "../utils/constants";
 
@@ -61,14 +62,11 @@ export function CreateRequestScreen() {
           placeholderTextColor={colors.textSecondary}
         />
 
-        <TouchableOpacity
-          style={[styles.publish, { backgroundColor: colors.primary }]}
+        <PrimaryButton
+          title="Publicar solicitud"
           onPress={handlePublish}
-        >
-          <Text style={{ color: "#fff", fontWeight: "700" }}>
-            Publicar solicitud
-          </Text>
-        </TouchableOpacity>
+          style={styles.publish}
+        />
       </View>
     </SafeAreaView>
   );

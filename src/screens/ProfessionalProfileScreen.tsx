@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useApp } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
+import { PrimaryButton } from "../components/PrimaryButton";
 
 export function ProfessionalProfileScreen() {
   const { settings } = useApp();
@@ -45,11 +46,7 @@ export function ProfessionalProfileScreen() {
           </Text>
         </View>
 
-        <TouchableOpacity
-          style={[styles.contactButton, { backgroundColor: colors.primary }]}
-        >
-          <Text style={{ color: "#fff", fontWeight: "600" }}>Contactar</Text>
-        </TouchableOpacity>
+        <PrimaryButton title="Contactar" style={styles.contactButton} />
       </ScrollView>
     </SafeAreaView>
   );
