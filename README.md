@@ -145,4 +145,20 @@ Notas útiles:
 - Si ves un error runtime relacionado con Hermes (`Cannot assign to read-only property 'NONE'`), lo hemos pospuesto temporalmente — la app sigue funcional en Expo Go. Podemos investigar y parchear dependeencias más tarde.
 - El proyecto ya está versionado en: https://github.com/Harveyjnz31/App-IOS-Android-VSC.git
 
+### Ejecutar Android desde VS Code
+
+Ya hay tareas configuradas en `.vscode/tasks.json` para probar la app en Android:
+
+1. Abre la paleta de comandos con `Ctrl+Shift+P`.
+2. Busca `Tasks: Run Task`.
+3. Ejecuta `ProConnect: emulador + Expo Android`.
+
+También puedes ejecutar las tareas por separado:
+
+- `Android: abrir emulador ProConnect` abre el AVD `ProConnect_Pixel_API_33`.
+- `Expo: iniciar en Android` corre `npm run android`.
+- `Android: listar emuladores` muestra los AVD disponibles.
+
+Si el emulador tarda en arrancar, espera a que muestre la pantalla principal de Android y vuelve a correr `Expo: iniciar en Android`.
+
 Si quieres que agregue CI (GitHub Actions) o normas de lint, dime y lo añado.

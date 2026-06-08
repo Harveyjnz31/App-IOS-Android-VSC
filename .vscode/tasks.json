@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Android: abrir emulador ProConnect",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "Start-Process -FilePath \"$env:ANDROID_HOME\\emulator\\emulator.exe\" -ArgumentList \"-avd ProConnect_Pixel_API_30 -no-snapshot-load\""
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Android: compilar e instalar app nativa",
+      "type": "npm",
+      "script": "android",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "ProConnect: emulador + Android nativo",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Android: abrir emulador ProConnect",
+        "Android: compilar e instalar app nativa"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Android: listar emuladores",
+      "type": "shell",
+      "command": "emulator -list-avds",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Expo: dev client",
+      "type": "npm",
+      "script": "android:dev",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}
